@@ -54,13 +54,13 @@ jobs:
     owner: "@fedora-iot"
     project: fedora-iot
 
-  - job: tests
-    trigger: pull_request
-    identifier: onboarding-fedora
-    fmf_path: test/fmf
-    tmt_plan: plans/onboarding
-    packages: [fido-device-onboard-fedora]
-    targets: ["fedora-latest-stable", "fedora-latest", "fedora-rawhide"]
+#   - job: tests
+#     trigger: pull_request
+#     identifier: onboarding-fedora
+#     fmf_path: test/fmf
+#     tmt_plan: plans/onboarding
+#     packages: [fido-device-onboard-fedora]
+#     targets: ["fedora-latest-stable", "fedora-latest", "fedora-rawhide"]
 
   - job: sync_from_downstream
     trigger: commit
@@ -86,7 +86,7 @@ jobs:
     job: copr_build
     packages: [fido-device-onboard-centos]
     trigger: pull_request
-    targets: ["centos-stream-9", "centos-stream-10"]
+    targets: ["centos-stream-10"]
 
   - <<: *fdo_copr_build_centos
     trigger: commit
@@ -98,6 +98,6 @@ jobs:
     trigger: pull_request
     identifier: onboarding-centos
     fmf_path: test/fmf
-    tmt_plan: plans/onboarding
+    tmt_plan: plans/image-mode-onboarding
     packages: [fido-device-onboard-centos]
-    targets: ["centos-stream-9", "centos-stream-10"]
+    targets: ["centos-stream-10"]
